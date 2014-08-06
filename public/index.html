@@ -5,20 +5,13 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="javascripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" charset="utf-8">
-    // io is global
     var socket = io("http://10.52.196.1");
-    // var nicknames = {};
-//     var guestNum = 1;
 
     $(function(){
         $('#chat-button').click(function(event){
             event.preventDefault();
             var myText = $('#chat-message').val();
             var myName = $("#nameNameName").val();
-            // if (typeof nicknames[socket.io.engine.id] === "undefined") {
-//                 nicknames[socket.io.engine.id] = "guest" + guestNum;
-//                 guestNum++;
-//             }
             socket.emit('chat-submit', { message: myText, author: myName });
         });
     })
